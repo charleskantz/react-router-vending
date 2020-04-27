@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import VendingMachine from './VendingMachine';
+import Pizza from './Pizza';
+import Chips from './Chips';
+import Jaeger from './Jaeger';
+import NavBar from './NavBar';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <Route exact path='/'>
+          <VendingMachine />
+        </Route>
+        <Route exact path='/chips'>
+          <Chips />
+          <h3>insert into chip page test</h3>
+        </Route>
+        <Route exact path='/pizza'>
+          <Pizza />
+        </Route>
+        <Route exact path='/jaeger'>
+          <Jaeger />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }
